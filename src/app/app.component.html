@@ -6,35 +6,44 @@
         (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
       <br><br>
       <ul class="list-group">
-        <div *ngIf="onlyOdd">
+        <!--<div *ngIf="onlyOdd">-->
+          <!--<li-->
+              <!--class="list-group-item"-->
+              <!--[ngClass]="{odd: odd % 2 !== 0}"-->
+              <!--[ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'green' : 'transparent'}"-->
+              <!--*ngFor="let odd of odds">-->
+              <!--{{odd}}-->
+          <!--</li>-->
+        <!--</div>-->
+        <!--<div *ngIf="!onlyOdd">-->
+          <!--<li-->
+              <!--class="list-group-item"-->
+              <!--[ngClass]="{odd: even % 2 !== 0}"-->
+              <!--[ngStyle]="{backgroundColor: even % 2 !== 0 ? 'green' : 'transparent'}"-->
+              <!--*ngFor="let even of evens">-->
+              <!--{{even}}-->
+          <!--</li>-->
+        <!--</div>-->
+        <!--<ng-template [ngIf]="!onlyOdd">-->
+          <!--<div>-->
+            <!--<li-->
+                <!--class="list-group-item"-->
+                <!--[ngClass]="{odd: even % 2 !== 0}"-->
+                <!--[ngStyle]="{backgroundColor: even % 2 !== 0 ? 'green' : 'transparent'}"-->
+                <!--*ngFor="let even of evens">-->
+              <!--{{even}}-->
+            <!--</li>-->
+          <!--</div>-->
+        <!--</ng-template>-->
+        <div *appUnless="onlyOdd">
           <li
               class="list-group-item"
               [ngClass]="{odd: odd % 2 !== 0}"
               [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'green' : 'transparent'}"
               *ngFor="let odd of odds">
-              {{odd}}
+            {{odd}}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
-          <li
-              class="list-group-item"
-              [ngClass]="{odd: even % 2 !== 0}"
-              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'green' : 'transparent'}"
-              *ngFor="let even of evens">
-              {{even}}
-          </li>
-        </div>
-        <ng-template [ngIf]="!onlyOdd">
-          <div>
-            <li
-                class="list-group-item"
-                [ngClass]="{odd: even % 2 !== 0}"
-                [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'green' : 'transparent'}"
-                *ngFor="let even of evens">
-              {{even}}
-            </li>
-          </div>
-        </ng-template>
       </ul>
       <p appBasicHighlight>Style me with basics!</p>
       <!--we can use `[defaultColor]="'yellow'"` or `highlightColor="red"`-->
